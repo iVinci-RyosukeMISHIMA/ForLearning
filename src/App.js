@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from "react";
 import Toppage from './pages/Toppage';
 import countriesJson from "./countries.json";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 
 function App() {
@@ -29,9 +30,13 @@ function App() {
   }
 
   return (
-    <div>
-      <Toppage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}></Toppage>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Toppage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}></Toppage>
+        } />
+        <Route path="world" element={<p>world</p>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -2,7 +2,7 @@ import Title from "../components/Title.js";
 import Selector from "../components/Selector.js";
 import Results from "../components/Results.js";
 
-const Toppage = (props) => {
+const TopPage = (props) => {
   return (
     <div>
       <Title />
@@ -12,4 +12,4 @@ const Toppage = (props) => {
   )
 }
 
-export default Toppage;
+export default TopPage;

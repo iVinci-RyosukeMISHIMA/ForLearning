@@ -17,8 +17,10 @@ function App() {
     totalRecovered: ""
   })
   const [allCountriesData, setAllCountriesData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getCountryData = () => {
+    setLoading(true);
     fetch("https://monotein-books.vercel.app/api/corona-tracker/country/" + country)
       .then(res => res.json())
       .then(data => setCountryData({
@@ -27,19 +29,23 @@ function App() {
         totalConfirmed: data[data.length - 1].Confirmed,
         newRecovered: data[data.length - 1].Recovered - data[data.length - 2].Recovered,
         totalRecovered: data[data.length - 1].Recovered
-      }))
+      })
+        , setLoading(false)
+      )
+      .catch(err => alert("Error occured. Please reload the page and try again."))
   }
 
   useEffect(() => {
     fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
       .then(res => res.json())
       .then(data => setAllCountriesData(data.Countries))
+      .catch(err => alert("Error occured. Please reload the page and try again."))
   }, [])
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData}></TopPage>} />
+        <Route path="/" element={<TopPage countriesJson={countriesJson} setCountry={setCountry} getCountryData={getCountryData} countryData={countryData} loading={loading}></TopPage>} />
         <Route path="world" element={<WorldPage allCountriesData={allCountriesData}></WorldPage>} />
       </Routes>
     </BrowserRouter>

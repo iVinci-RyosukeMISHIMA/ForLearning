@@ -30,8 +30,8 @@ function App() {
         newRecovered: data[data.length - 1].Recovered - data[data.length - 2].Recovered,
         totalRecovered: data[data.length - 1].Recovered
       })
-        , setLoading(false)
       )
+      .then(a => setLoading(false))
       .catch(err => alert("Error occured. Please reload the page and try again."))
   }
 

@@ -13,6 +13,14 @@ type CountrydataType = {
   totalRecovered: number
 }
 
+interface SingleCountryDataType {
+  Country: string
+  NewConfirmed: number
+  TotalConfirmed: number
+}
+
+interface AllCountriesDataType extends Array<SingleCountryDataType> { }
+
 function App() {
 
   const [country, setCountry] = useState<string>("japan");
@@ -23,7 +31,14 @@ function App() {
     newRecovered: 0,
     totalRecovered: 0
   })
-  const [allCountriesData, setAllCountriesData] = useState([]);
+  const [allCountriesData, setAllCountriesData] = useState<AllCountriesDataType>([
+    {
+      Country: "",
+      NewConfirmed: 0,
+      TotalConfirmed: 0
+    }
+  ]
+  );
   const [loading, setLoading] = useState<boolean>(false);
 
 

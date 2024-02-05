@@ -1,5 +1,15 @@
 
-const Card = ({ allCountriesData }) => {
+interface SingleCountryDataType {
+    Country: string
+    NewConfirmed: number
+    TotalConfirmed: number
+}
+
+interface CardType {
+    allCountriesData: Array<SingleCountryDataType>
+}
+
+const Card = ({ allCountriesData }: CardType) => {
     return (
         <div>
             {

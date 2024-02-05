@@ -5,19 +5,26 @@ import WorldPage from './pages/WorldPage';
 import countriesJson from "./countries.json";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
+type CountrydataType = {
+  date: string
+  newConfirmed: number
+  totalConfirmed: number
+  newRecovered: number
+  totalRecovered: number
+}
 
 function App() {
 
-  const [country, setCountry] = useState("japan");
-  const [countryData, setCountryData] = useState({
+  const [country, setCountry] = useState<string>("japan");
+  const [countryData, setCountryData] = useState<CountrydataType>({
     date: "",
-    newConfirmed: "",
-    totalConfirmed: "",
-    newRecovered: "",
-    totalRecovered: ""
+    newConfirmed: 0,
+    totalConfirmed: 0,
+    newRecovered: 0,
+    totalRecovered: 0
   })
   const [allCountriesData, setAllCountriesData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
 

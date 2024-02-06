@@ -1,7 +1,7 @@
-import Header from "../components/Header.js";
-import Title from "../components/Title.js";
-import Selector from "../components/Selector.js";
-import Results from "../components/Results.js";
+import Header from "../components/Header";
+import Title from "../components/Title";
+import Selector from "../components/Selector";
+import Results from "../components/Results";
 
 type TopPageType = {
   countriesJson: {

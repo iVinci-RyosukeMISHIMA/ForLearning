@@ -34,7 +34,7 @@ const TopPage = () => {
     const getCountryData = async () => {
       try {
         setLoading(true)
-        const res = await fetch("https://monotein-books.vercel.app/api/corona-tracker/country/" + country)
+        const res = await fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
         createObjectForState(await res.json())
         setLoading(false)
       } catch (error) {

@@ -4,14 +4,13 @@ import Title from "../components/Title"
 import Card from "../components/Card"
 import { useState, useEffect } from "react"
 
-interface SingleCountryDataType {
+type SingleCountryDataType = {
     Country: string
     NewConfirmed: number
     TotalConfirmed: number
 }
 
-interface AllCountriesDataType extends Array<SingleCountryDataType> { }
-
+type AllCountriesDataType = SingleCountryDataType[]
 
 const WorldPage = () => {
 

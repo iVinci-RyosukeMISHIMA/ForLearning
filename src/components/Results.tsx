@@ -1,13 +1,8 @@
 import Loading from "./Loading";
+import { DetailedCountryData as CountryData } from "../types/Types";
 
 type ResultsType = {
-    countryData: {
-        date: string
-        newConfirmed: number
-        totalConfirmed: number
-        newRecovered: number
-        totalRecovered: number
-    },
+    countryData: CountryData,
     loading: boolean
 }
 

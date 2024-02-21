@@ -4,20 +4,13 @@ import Selector from "../components/Selector";
 import Results from "../components/Results";
 import { useEffect, useState } from "react";
 import countriesJson from "../countries.json";
-
-type CountrydataType = {
-  date: string
-  newConfirmed: number
-  totalConfirmed: number
-  newRecovered: number
-  totalRecovered: number
-}
+import { DetailedCountryData as CountryData } from "../types/Types";
 
 const TopPage = () => {
   const [country, setCountry] = useState<string>("japan");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [countryData, setCountryData] = useState<CountrydataType>({
+  const [countryData, setCountryData] = useState<CountryData>({
     date: "",
     newConfirmed: 0,
     totalConfirmed: 0,

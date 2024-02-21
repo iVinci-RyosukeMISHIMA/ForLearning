@@ -1,20 +1,12 @@
-
 import Header from "../components/Header"
 import Title from "../components/Title"
 import Card from "../components/Card"
 import { useState, useEffect } from "react"
-
-type SingleCountryDataType = {
-    Country: string
-    NewConfirmed: number
-    TotalConfirmed: number
-}
-
-type AllCountriesDataType = SingleCountryDataType[]
+import { SummarizedCountryData as SingleCountryData } from "../types/Types";
 
 const WorldPage = () => {
 
-    const [allCountriesData, setAllCountriesData] = useState<AllCountriesDataType>([
+    const [allCountriesData, setAllCountriesData] = useState<SingleCountryData[]>([
         {
             Country: "",
             NewConfirmed: 0,

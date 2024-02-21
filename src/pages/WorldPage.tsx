@@ -24,10 +24,16 @@ const WorldPage = () => {
     ]);
 
     useEffect(() => {
-        fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
-            .then(res => res.json())
-            .then(data => setAllCountriesData(data.Countries))
-            .catch(err => alert("Error occured. Please reload the page and try again."))
+        const getAllCountriesData = async () => {
+            try {
+                const res = await fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
+                const data = await res.json()
+                setAllCountriesData(data.Countries)
+            } catch (error) {
+                alert("Error occured. Please reload the page and try again.")
+            }
+        }
+        getAllCountriesData();
     }, [])
 
     return (

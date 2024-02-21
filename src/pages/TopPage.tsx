@@ -38,13 +38,15 @@ const TopPage = () => {
   }
 
   useEffect(() => {
-    const getCountryData = () => {
-      setLoading(true);
-      fetch("https://monotein-books.vercel.app/api/corona-tracker/country/" + country)
-        .then(res => res.json())
-        .then(data => createObjectForState(data))
-        .then(a => setLoading(false))
-        .catch(err => alert("Error occured. Please reload the page and try again."))
+    const getCountryData = async () => {
+      try {
+        setLoading(true)
+        const res = await fetch("https://monotein-books.vercel.app/api/corona-tracker/country/" + country)
+        createObjectForState(await res.json())
+        setLoading(false)
+      } catch (error) {
+        alert("Error occured. Please reload the page and try again.")
+      }
     }
     getCountryData();
   }, [country])

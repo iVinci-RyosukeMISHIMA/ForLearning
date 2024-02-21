@@ -1,8 +1,6 @@
 import { SummarizedCountryData as SingleCountryData } from "../types/Types";
 
-type AllCountriesData = { allCountriesData: SingleCountryData[] }
-
-const Card = ({ allCountriesData }: AllCountriesData) => {
+const Card = ({ allCountriesData }: { allCountriesData: SingleCountryData[] }) => {
     return (
         <div className="card-container">
             {

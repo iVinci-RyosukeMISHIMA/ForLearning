@@ -5,6 +5,8 @@ import Results from "../components/Results";
 import { useEffect, useState } from "react";
 import countriesJson from "../countries.json";
 import { DetailedCountryData as CountryData } from "../types/Types";
+import { Box, ThemeProvider, createTheme, } from "@material-ui/core";
+
 
 const TopPage = () => {
   const [country, setCountry] = useState<string>("japan");

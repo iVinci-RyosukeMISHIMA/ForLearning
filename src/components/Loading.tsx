@@ -1,9 +1,12 @@
-//Loading.js
+import { Box, ThemeProvider, createTheme, } from "@material-ui/core";
 
 const Loading = () => {
     return (
-        <div>Loading...</div>
-
+        <ThemeProvider theme={createTheme()}>
+            <Box sx={{ justifyContent: 'center', display: 'flex' }}>
+                <div>Loading...</div>
+            </Box>
+        </ThemeProvider>
     )
 }
 
